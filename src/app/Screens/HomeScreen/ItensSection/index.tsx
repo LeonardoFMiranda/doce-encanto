@@ -1,11 +1,9 @@
-// filepath: /F:/Programação/DoceEncanto/doce-encanto/src/app/Screens/HomeScreen/ItensSection/index.tsx
 "use client"
 import React, { useEffect, useState, useContext } from 'react'
 import Image from 'next/image';
 import { ShoppingCart } from "@phosphor-icons/react";
 import { Produto } from '@/app/interface/Produtos';
 import { ModalContext } from '@/context/ModalContext';
-import { Modal } from '@/components/Modal';
 import ProdutoModalSelected from '@/components/Modal/ProdutoModalSelected';
 
 function ItensSection() {

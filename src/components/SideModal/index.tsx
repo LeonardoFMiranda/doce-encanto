@@ -1,7 +1,13 @@
+import { ReactNode } from "react";
 import { X } from "@phosphor-icons/react/dist/ssr";
 
 
-export const SideModal = ({children, handleModal}:any) => {
+interface SideModalProps {
+  children: ReactNode;
+  handleModal: () => void;
+}
+
+export const SideModal = ({ children, handleModal }: SideModalProps) => {
   return (
     <div 
       className={`w-screen h-screen bg-black-900 fixed z-30 top-0 left-0 flex justify-end overflow-hidden`}

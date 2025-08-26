@@ -1,17 +1,22 @@
 import React from 'react'
+import Image from 'next/image'
 import { SideModal } from '../../SideModal'
 import { ShoppingBag } from "@phosphor-icons/react";
 import { useOrder } from "@/context/OrderContext";
+import { OrderItem } from "@/app/interface/OrderItem";
 
+interface BagModalProps {
+  handleModal: () => void;
+}
 
-function BagModal({ handleModal }: any) {
+function BagModal({ handleModal }: BagModalProps) {
   const { order, removeFromOrder, clearOrder, calculateTotalPrice, updateItemQuantity } = useOrder();
 
-  const handleRemoveOneFromItem = (item: any) => {
+  const handleRemoveOneFromItem = (item: OrderItem) => {
     updateItemQuantity(item.produto.id, item.tamanhoSelecionado, item.quantidade - 1);
   };
 
-  const handleAddOneFromItem = (item: any) => {
+  const handleAddOneFromItem = (item: OrderItem) => {
     updateItemQuantity(item.produto.id, item.tamanhoSelecionado, item.quantidade + 1);
   };
 
@@ -27,7 +32,13 @@ function BagModal({ handleModal }: any) {
             <ul className="flex flex-col gap-3 max-h-72 overflow-y-auto pr-2">
               {order.map((item, idx) => (
                 <li key={idx} className="flex items-center gap-3 bg-primaryWhite/80 rounded-lg p-2 shadow-sm">
-                  <img src={item.produto.image} alt={item.produto.name} className="w-14 h-14 rounded-full object-cover border border-primaryClay/30" />
+                  <Image
+                    src={item.produto.image}
+                    alt={item.produto.name}
+                    width={56}
+                    height={56}
+                    className="w-14 h-14 rounded-full object-cover border border-primaryClay/30"
+                  />
                   <div className="flex-1 flex flex-col">
                     <span className="font-bold text-primaryClay">{item.produto.name}</span>
                     {item.tamanhoSelecionado && <span className="text-xs text-primaryClay/70">Tamanho: {item.tamanhoSelecionado}</span>}
