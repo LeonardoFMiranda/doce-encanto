@@ -1,21 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #FFF9E2;
   --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #FFF9E2;
     --foreground: #ededed;
   }
 }
 
+.delius-swash-caps-regular {
+  font-family: "Delius Swash Caps", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.montserrat-400 {
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.montserrat-600 {
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+
+
 body {
-  color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  color: var(--foreground);
+  letter-spacing: 0.01em;
+  transition: background 0.3s;
+}
+
+/* Animação para gradiente do footer */
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.animate-gradient-x {
+  animation: gradient-x 8s ease-in-out infinite;
 }

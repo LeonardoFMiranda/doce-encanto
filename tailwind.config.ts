@@ -11,6 +11,14 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        'primaryYellow': "#FEECD0",
+        'primaryWhite': "#FFF9E2",
+        'primaryGreen': "#CDD4B1",
+        'primaryPistachio': "#EBECCC",
+        'primaryClay': "#DCA278",
+      },
+      backgroundSize: {
+        'stripe': '300% 100%', // Ajuste o tamanho conforme necessário
       },
     },
   },
